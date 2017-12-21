@@ -18,17 +18,6 @@ if (env.isDev()) {
 // Our custom builders are simply wrappers around job-dsl job types (https://github.com/jenkinsci/job-dsl-plugin)
 // In the `with {}` closure, you have full access to the job-dsl API (https://jenkinsci.github.io/job-dsl-plugin/)
 // and anything else job-dsl supports, such as the `configure` block (https://github.com/jenkinsci/job-dsl-plugin/wiki/The-Configure-Block)
-new FlowJobBuilder(
-        name: 'GeneratedFlowJob',
-        description: 'this our first stab at it',
-        jobs: ['job1', 'job2']
-).build(this).with {
-    // example of extending a job with the job-dsl api
-    logRotator {
-        numToKeep(365)
-    }
-}
-
 new BaseJobBuilder(
         name: "job1",
         description: "One job"
